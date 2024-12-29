@@ -5,27 +5,28 @@ local opt = vim.opt
 opt.relativenumber = true
 opt.number = true
 
- -- tabs & indentation
- opt.tabstop = 2
- opt.shiftwidth = 2
- opt.expandtab = true
- opt.autoindent = true
+-- scroll eof
+opt.scrolloff = 10
 
- opt.wrap = false
+-- tabs & indentation
+opt.tabstop = 2
+opt.shiftwidth = 2
+opt.expandtab = true
+opt.autoindent = true
 
- -- search settings
- opt.ignorecase = true
- opt.smartcase = true
+opt.wrap = false
 
- opt.termguicolors = true
- opt.background = "dark"
- opt.signcolumn = "yes"
+-- search settings
+opt.ignorecase = true
+opt.smartcase = true
 
- opt.backspace = "indent,eol,start" -- allow backspace on indent, end of line or insert mode start position
+opt.termguicolors = true
+opt.background = "dark"
+opt.signcolumn = "yes"
 
- opt.clipboard:append("unnamedplus")
+opt.backspace = "indent,eol,start" -- allow backspace on indent, end of line or insert mode start position
 
- opt.splitright = true
- opt.splitbelow = true
+opt.clipboard:append("unnamedplus")
 
-
+opt.splitright = true
+opt.splitbelow = true

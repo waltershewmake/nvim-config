@@ -1,0 +1,184 @@
+{
+  "Comment Multiline Block": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "cmmb",
+    "body": ["/**", " * $1", " */"]
+  },
+
+  "Typescript React Function Component With Description": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "fc",
+    "body": [
+      "'use client';",
+      "",
+      "import React from 'react';",
+      "",
+      "export interface ${1:${TM_FILENAME_BASE/(\\w+)(-?)/${1:/capitalize}/g}}Props {",
+      "\t$2",
+      "}",
+      "",
+      "/**",
+      " * $3",
+      " */",
+      "const $1: React.FC<${1}Props> = ({ $4 }) => {",
+      "\treturn (",
+      "\t\t<div>$1</div>",
+      "\t)",
+      "}",
+      "",
+      "export default $1;"
+    ]
+  },
+  "Typescript React Server Function Component With Description": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "fs",
+    "body": [
+      "import React from 'react';",
+      "",
+      "export interface ${1:${TM_FILENAME_BASE/(\\w+)(-?)/${1:/capitalize}/g}}Props {",
+      "\t$2",
+      "}",
+      "",
+      "/**",
+      " * $3",
+      " */",
+      "const $1: React.FC<${1}Props> = ({ $4 }) => {",
+      "\treturn (",
+      "\t\t<div>$1</div>",
+      "\t)",
+      "}",
+      "",
+      "export default $1;"
+    ]
+  },
+  "Typescript Next.js Page Component With Description": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "fp",
+    "body": [
+      "import React from 'react';",
+      "",
+      "import PageWrapper from '~/components/layout/page-wrapper';",
+      "",
+      "export interface PageProps {",
+      "\t$2",
+      "}",
+      "",
+      "/**",
+      " * $1 page",
+      " */",
+      "const Page: React.FC<PageProps> = async ({}) => {",
+      "\treturn (",
+      "\t\t<PageWrapper>",
+      "\t\t\t$1",
+      "\t\t</PageWrapper>",
+      "\t);",
+      "};",
+      "",
+      "export default Page;"
+    ],
+    "description": "Creates a structured page component with header and content."
+  },
+
+  "Typescript Next.js Layout Component With Description": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "fl",
+    "body": [
+      "import React, { type PropsWithChildren } from 'react';",
+      "",
+      "export interface LayoutProps extends PropsWithChildren {",
+      "\t$2",
+      "}",
+      "",
+      "/**",
+      " * $1 layout",
+      " */",
+      "const Layout: React.FC<LayoutProps> = ({ children }) => {",
+      "\treturn (",
+      "\t\t<div>{children}</div>",
+      "\t);",
+      "};",
+      "",
+      "export default Layout;"
+    ],
+    "description": "Creates a structured layout component."
+  },
+
+  "Typescript Next.js App Layout Component With Description": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "fla",
+    "body": [
+      "import React, { type PropsWithChildren } from 'react';",
+      "",
+      "// eslint-disable-next-line no-restricted-imports",
+      "import rawManifest from '../manifest.json' assert { type: 'json' };",
+      "",
+      "import App from '~/components/app/app';",
+      "import AppLink from '~/components/app/app-link';",
+      "import { manifestSchema } from '~/lib/apps';",
+      "",
+      "export interface AppLayoutProps extends PropsWithChildren {}",
+      "",
+      "/**",
+      " * $1 layout",
+      " */",
+      "const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {",
+      "\tconst manifest = manifestSchema.parse(rawManifest);",
+      "\treturn (",
+      "\t\t<App manifest={manifest} page={children}>",
+      "\t\t\t$2",
+      "\t\t</App>",
+      "\t);",
+      "};",
+      "",
+      "export default AppLayout;"
+    ],
+    "description": "Creates a structured layout component."
+ },
+  "Typescript React Native Function Component With Description": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "fn",
+    "body": [
+      "import React from 'react';",
+      "import { View, Text } from 'react-native';",
+      "",
+      "export interface ${1:${TM_FILENAME_BASE/(\\w+)(-?)/${1:/capitalize}/g}}Props {",
+      "\t$2",
+      "}",
+      "",
+      "/**",
+      " * $3",
+      " */",
+      "const $1: React.FC<${1}Props> = ({ $4 }) => {",
+      "\treturn (",
+      "\t\t<View>",
+      "\t\t\t<Text>$1</Text>",
+      "\t\t</View>",
+      "\t)",
+      "}",
+      "",
+      "export default $1;"
+    ]
+  },
+
+  "Postgres Table (drizzle)": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "pt",
+    "body": [
+      "import { pgTable, timestamp, serial, integer } from 'drizzle-orm/pg-core';",
+      "",
+      "export const ${1:${TM_FILENAME_BASE/(-|^)(\\w)/${2:/capitalize}/g}} = pgTable('${2:${TM_FILENAME_BASE/(-)/_/g}}', {",
+      "\tid: serial().primaryKey(),",
+      "\t$3",
+      "\t",
+      "createdAt: timestamp({ mode: 'date', precision: 3 })",
+      "\t.notNull()",
+      "\t.defaultNow(),",
+      "updatedAt: timestamp({ mode: 'date', precision: 3 })",
+      "\t.notNull()",
+      "\t.defaultNow()",
+      "\t.\\$onUpdate(() => new Date())",
+      "});"
+    ]
+  }
+}
+
