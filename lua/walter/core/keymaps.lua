@@ -33,5 +33,13 @@ keymap.set("n", "<A-Down>", ":m .+1<CR>==", { desc = "Move line down", noremap =
 keymap.set("v", "<A-Down>", ":m '>+1<CR>gv=gv", { desc = "Move selection down", noremap = true, silent = true })
 
 -- Code action
-vim.keymap.set("n", "<A-.>", vim.lsp.buf.code_action, { desc = "Open code actions" }) -- Normal mode
-vim.keymap.set("v", "<A-.>", vim.lsp.buf.code_action, { desc = "Open code actions (range)" }) -- Visual mode
+keymap.set("n", "<A-.>", vim.lsp.buf.code_action, { desc = "Open code actions" }) -- Normal mode
+keymap.set("v", "<A-.>", vim.lsp.buf.code_action, { desc = "Open code actions (range)" }) -- Visual mode
+
+-- Map Cmd+Backspace
+keymap.set("i", "<D-BS>", "<C-u>", { noremap = true })
+keymap.set("c", "<D-BS>", "<C-u>", { noremap = true })
+
+-- Map Alt+Backspace
+keymap.set("i", "<A-BS>", "<C-w>", { noremap = true })
+keymap.set("c", "<A-BS>", "<C-w>", { noremap = true })
