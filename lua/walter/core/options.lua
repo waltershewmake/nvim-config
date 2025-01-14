@@ -6,7 +6,8 @@ opt.relativenumber = true
 opt.number = true
 
 -- scroll eof
-opt.scrolloff = 10
+opt.scrolloff = 5
+opt.sidescrolloff = 5
 
 -- tabs & indentation
 opt.tabstop = 2

@@ -43,3 +43,7 @@ keymap.set("c", "<D-BS>", "<C-u>", { noremap = true })
 -- Map Alt+Backspace
 keymap.set("i", "<A-BS>", "<C-w>", { noremap = true })
 keymap.set("c", "<A-BS>", "<C-w>", { noremap = true })
+
+-- Map cmd+Z and cmd+shift+Z to undo and redo
+keymap.set({ "n", "i" }, "<D-z>", "<cmd>u<CR>", { noremap = true })
+keymap.set({ "n", "i" }, "<D-Z>", "<cmd>red<CR>", { noremap = true })

@@ -7,6 +7,7 @@ return {
 		"nvim-tree/nvim-web-devicons", -- Icons support
 		"folke/todo-comments.nvim", -- Optional extension
 		"nvim-telescope/telescope-file-browser.nvim", -- File Browser extension
+		"nvim-telescope/telescope-live-grep-args.nvim", -- Live Grep with args for advanced functionality
 	},
 	config = function()
 		local telescope = require("telescope")
@@ -35,11 +36,14 @@ return {
 						},
 					},
 				},
+				live_grep_args = {}, -- No additional config needed
 			},
 		})
 
 		telescope.load_extension("fzf")
 		telescope.load_extension("file_browser")
+		telescope.load_extension("live_grep_args")
+
 		local keymap = vim.keymap
 
 		keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Fuzzy find files in cwd" })
@@ -54,6 +58,13 @@ return {
 			local current_file = vim.fn.expand("%:p:h") -- Get the directory of the current file
 			require("telescope").extensions.file_browser.file_browser({ cwd = current_file })
 		end, { desc = "Open Telescope File Browser relative to current file" })
+
+		-- Keybinding for workspace-wide find and replace
+		keymap.set("n", "<leader>fw", function()
+			require("telescope").extensions.live_grep_args.live_grep_args({
+				default_text = "",
+			})
+		end, { desc = "Workspace-wide find and replace" })
 	end,
 	lazy = false, -- Ensure it loads immediately
 	priority = 1000, -- Optional: Ensures it loads before other plugins

@@ -15,7 +15,7 @@ return {
 			-- for commenting tsx, jsx, svelte, html files
 			pre_hook = ts_context_commentstring.create_pre_hook(),
 		})
-		vim.keymap.set("n", "<D-/>", function()
+		vim.keymap.set({ "n", "v", "i" }, "<D-/>", function()
 			require("Comment.api").toggle.linewise.current()
 		end, { noremap = true, silent = true })
 	end,

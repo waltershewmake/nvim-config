@@ -141,8 +141,8 @@ return {
 					},
 				})
 			end,
-			["tsserver"] = function()
-				lspconfig["tsserver"].setup({
+			["ts_ls"] = function()
+				lspconfig["ts_ls"].setup({
 					capabilities = capabilities,
 					on_attach = function(client, bufnr)
 						local ts_utils = require("nvim-lsp-ts-utils")
